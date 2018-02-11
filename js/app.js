@@ -121,7 +121,25 @@ function flipback() {
         movesUsed = movecount.innerText;
     }
 
+/*Funtion to finish the Game. Alert to show moves, time and Message. Button to restart the game*/
 
+    function finishGame() {
+      if (matchedCards.length === 8) {
+        swal({
+          title:"Congratulations You Won! ",
+          text:"With " + movesUsed + " moves and " + Sterne + " Stars! You needed "+ seconds + " seconds.",
+          icon: "success",
+          button: {
+            text: "restart",
+            value: "start",
+          },
+        })
+    .then(value => {
+      if (value) throw löschen();
+    })
+    clearTimeout(myVar);
+    };
+    };
 
 
 /*Star Rating Definition. Changes the Class of the ".Stars" after a certain length of the Array "movesUsed" is reached*/
