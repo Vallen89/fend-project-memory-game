@@ -134,23 +134,24 @@ function flipback() {
 
 /*Funtion to finish the Game. Alert to show moves, time and Message. Button to restart the game*/
 
-    function finishGame() {
-      if (matchedCards.length === 8) {
-        swal({
-          title:"Congratulations You Won! ",
-          text:"With " + movesUsed + " moves and " + Sterne + " Stars! You needed "+ seconds + " seconds.",
-          icon: "success",
-          button: {
-            text: "restart",
-            value: "start",
-          },
-        })
-    .then(value => {
-      if (value) throw löschen();
+function finishGame() {
+  if (matchedCards.length === 8) {
+    swal({
+      title:"Congratulations You Won! ",
+      text:"With " + movesUsed + " moves and " + Sterne + " Stars! You needed " + timeUsed[0] + " seconds",
+      icon: "success",
+      button: {
+        text: "restart",
+        value: "start",
+      },
     })
-    clearTimeout(myVar);
-    };
-    };
+.then(value => {
+  if (value) throw löschen();
+})
+clearTimeout(myVar);
+matchedCards.splice(0,8);
+};
+};
 
 
 /*Star Rating Definition. Changes the Class of the ".Stars" after a certain length of the Array "movesUsed" is reached*/
