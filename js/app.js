@@ -70,6 +70,12 @@ function shuffle(array) {
 var deckEvent = document.querySelector('.deck');
 deckEvent.addEventListener("click", showCard, false);
 
+function showCard(evt) {
+  if (evt.target && evt.target.nodeName === "LI" && evt.target.className !== "card match")
+  {evt.target.className = "card open show";
+  evt.target.style.cssText = "transform: rotateY(180deg); transition: 0.4s;";
+}
+}
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
