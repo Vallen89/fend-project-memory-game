@@ -86,6 +86,7 @@ function showCard(evt) {
 function openCards(evt) {
   if (openCardsList.length === 2 && openCardsList[0] === openCardsList[1]) {
 matchedCards.push("match");
+cardmatch();
 openCardsList.splice(0,2);
   }
   else if (openCardsList.length === 2 && openCardsList[0] !== openCardsList[1]) {
@@ -100,7 +101,11 @@ function flipback() {
     flippedCards.splice(0,2);
   }
 
-
+  function cardmatch() {
+      flippedCards[0].className = "card match";
+      flippedCards[1].className = "card match";
+      flippedCards.splice(0,2);
+    }
 
 /*
  * set up the event listener for a card. If a card is clicked:
