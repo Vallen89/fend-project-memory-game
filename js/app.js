@@ -15,6 +15,8 @@ for loop to loop through all the cards and randomly assign them.
 
  function löschen() {
  let allCards = document.querySelectorAll(".card");
+ let move = document.querySelector('.moves');
+ move.innerText = "0";
        for (y = 0; y < allCards.length; y++) {
          let everyCard = allCards[y];
           let changeCards = cardlist[y];
