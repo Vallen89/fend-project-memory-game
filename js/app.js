@@ -1,7 +1,6 @@
-/*
- * Create a list that holds all of your cards
- */
+/* a list that holds all cards */
  var cardlist = ["diamondOne", "diamondTwo", "planeOne", "planeTwo", "anchorOne", "anchorTwo", "boltOne", "boltTwo", "cubeOne", "cubeTwo", "leafOne", "leafTwo", "bycicleOne", "bycicleTwo", "bombOne", "bombTwo"];
+ cardlist = shuffle(cardlist);
 
 /*
  * Display the cards on the page
@@ -9,6 +8,49 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+
+/* Function to reset the game and start the game with clean slate. "löschen" is german for delete.
+for loop to loop through all the cards and randomly assign them.
+ */
+
+ function löschen() {
+ let allCards = document.querySelectorAll(".card");
+       for (y = 0; y < allCards.length; y++) {
+         let everyCard = allCards[y];
+          let changeCards = cardlist[y];
+          everyCard.className = "card";
+ everyCard.firstElementChild.remove();
+  if (changeCards === "diamondOne" || changeCards === "diamondTwo") {
+    everyCard.insertAdjacentHTML('afterBegin', '<i class="fa fa-diamond"></i>');
+  }
+  else if (changeCards === "planeOne" || changeCards === "planeTwo") {
+    everyCard.insertAdjacentHTML('afterBegin', '<i class="fa fa-paper-plane-o"></i>');
+  }
+  else if (changeCards === "anchorOne" || changeCards === "anchorTwo"){
+    everyCard.insertAdjacentHTML('afterBegin', '<i class="fa fa-anchor"></i>');
+  }
+  else if (changeCards === "boltOne" || changeCards === "boltTwo"){
+    everyCard.insertAdjacentHTML('afterBegin', '<i class="fa fa-bolt"></i>');
+  }
+  else if (changeCards === "cubeOne" || changeCards === "cubeTwo"){
+    everyCard.insertAdjacentHTML('afterBegin', '<i class="fa fa-cube"></i>');
+  }
+  else if (changeCards === "leafOne" || changeCards === "leafTwo"){
+    everyCard.insertAdjacentHTML('afterBegin', '<i class="fa fa-leaf"></i>');
+  }
+  else if (changeCards === "bycicleOne" || changeCards === "bycicleTwo"){
+    everyCard.insertAdjacentHTML('afterBegin', '<i class="fa fa-bicycle"></i>');
+  }
+  else if (changeCards === "bombOne" || changeCards === "bombTwo") {
+    everyCard.insertAdjacentHTML('afterBegin', '<i class="fa fa-bomb"></i>');
+  }
+  else {};
+ }
+ }
+ löschen();
+
+
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
