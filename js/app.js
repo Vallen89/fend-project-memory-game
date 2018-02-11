@@ -16,6 +16,12 @@ for loop to loop through all the cards and randomly assign them.
  function löschen() {
  let allCards = document.querySelectorAll(".card");
  let move = document.querySelector('.moves');
+ document.getElementById("time").innerHTML = "0s";
+ clearTimeout(myVar);
+ let stars = document.querySelector('.stars');
+ stars.children[0].innerHTML = '<i class="fa fa-star"></i>';
+ stars.children[1].innerHTML = '<i class="fa fa-star"></i>';
+ stars.children[2].innerHTML = '<i class="fa fa-star"></i>';
  move.innerText = "0";
        for (y = 0; y < allCards.length; y++) {
          let everyCard = allCards[y];
