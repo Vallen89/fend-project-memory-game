@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-
+ var cardlist = ["diamondOne", "diamondTwo", "planeOne", "planeTwo", "anchorOne", "anchorTwo", "boltOne", "boltTwo", "cubeOne", "cubeTwo", "leafOne", "leafTwo", "bycicleOne", "bycicleTwo", "bombOne", "bombTwo"];
 
 /*
  * Display the cards on the page
