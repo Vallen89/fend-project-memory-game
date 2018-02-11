@@ -107,6 +107,8 @@ function flipback() {
       flippedCards.splice(0,2);
     }
 
+    var repeat = document.querySelector('.fa-repeat');
+    repeat.addEventListener("click", löschen);
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
