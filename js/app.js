@@ -67,6 +67,8 @@ function shuffle(array) {
     return array;
 }
 
+var deckEvent = document.querySelector('.deck');
+deckEvent.addEventListener("click", showCard, false);
 
 /*
  * set up the event listener for a card. If a card is clicked:
