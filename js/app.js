@@ -120,6 +120,28 @@ function flipback() {
         movecount.innerText++;
         movesUsed = movecount.innerText;
     }
+
+
+
+
+/*Star Rating Definition. Changes the Class of the ".Stars" after a certain length of the Array "movesUsed" is reached*/
+
+var stars = document.querySelector('.stars');
+var Sterne = "3";
+function Starcount() {
+      if (movesUsed == 13) {
+        stars.children[0].innerHTML = '<i class="fa fa-star-o"></i>';
+        Sterne = "2";
+      }
+      else if (movesUsed == 17) {
+        stars.children[1].innerHTML = '<i class="fa fa-star-o"></i>';
+        Sterne = "1";
+        }
+      else if (movesUsed == 21) {
+        stars.children[2].innerHTML = '<i class="fa fa-star-o"></i>';
+        Sterne = "0";
+      }
+    }
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
