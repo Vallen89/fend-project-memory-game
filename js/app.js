@@ -87,6 +87,8 @@ deckEvent.addEventListener("click", time, {once: true});
 function showCard(evt) {
   if (evt.target && evt.target.nodeName === "LI" && evt.target.className !== "card match")
   {evt.target.className = "card open show";
+  openCardsList.push(evt.target.firstElementChild.className);
+  flippedCards.push(evt.target);
   evt.target.style.cssText = "transform: rotateY(180deg); transition: 0.4s;";
 }
   openCards(evt);
