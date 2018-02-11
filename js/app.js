@@ -70,7 +70,7 @@ function shuffle(array) {
 var openCardsList = [];
 var matchedCards = [];
 var flippedCards = [];
-
+var movesUsed = "0";
 
 var deckEvent = document.querySelector('.deck');
 deckEvent.addEventListener("click", showCard, false);
@@ -88,11 +88,13 @@ function openCards(evt) {
 matchedCards.push("match");
 cardmatch();
 openCardsList.splice(0,2);
+moves();
   }
   else if (openCardsList.length === 2 && openCardsList[0] !== openCardsList[1]) {
 setTimeout(flipback,500);
 openCardsList.splice(0,2);
-    };
+moves();
+  };
 }
 
 function flipback() {
@@ -109,6 +111,13 @@ function flipback() {
 
     var repeat = document.querySelector('.fa-repeat');
     repeat.addEventListener("click", löschen);
+
+
+    function moves() {
+      var movecount = document.querySelector('.moves');
+        movecount.innerText++;
+        movesUsed = movecount.innerText;
+    }
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
