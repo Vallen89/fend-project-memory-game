@@ -69,7 +69,7 @@ function shuffle(array) {
 
 var openCardsList = [];
 var matchedCards = [];
-
+var flippedCards = [];
 
 
 var deckEvent = document.querySelector('.deck');
@@ -94,7 +94,11 @@ openCardsList.splice(0,2);
     };
 }
 
-
+function flipback() {
+    flippedCards[0].className = "card";
+    flippedCards[1].className = "card";
+    flippedCards.splice(0,2);
+  }
 
 
 
