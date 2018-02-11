@@ -82,6 +82,7 @@ var movesUsed = "0";
 
 var deckEvent = document.querySelector('.deck');
 deckEvent.addEventListener("click", showCard, false);
+deckEvent.addEventListener("click", time, {once: true});
 
 function showCard(evt) {
   if (evt.target && evt.target.nodeName === "LI" && evt.target.className !== "card match")
