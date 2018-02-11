@@ -142,6 +142,18 @@ function Starcount() {
         Sterne = "0";
       }
     }
+
+    /*Timer Funtion Definition. Counts Seconds after the first Click*/
+
+    var seconds = "0";
+    var myVar;
+    function time() {
+    myVar = setInterval(myTimer ,1000);
+    }
+    function myTimer() {
+        seconds++;
+        document.getElementById("time").innerHTML = seconds + "s";
+    }
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
