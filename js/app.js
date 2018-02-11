@@ -11,6 +11,9 @@
 
 /* Function to reset the game and start the game with clean slate. "löschen" is german for delete.
 for loop to loop through all the cards and randomly assign them.
+Adds EventListener to measure the time at every Start of the Game.Clears the setInterval.
+sets moves to 0.
+sets the star Count back by changing the inner HTML of every li Element.
  */
 
  function löschen() {
@@ -59,9 +62,6 @@ let allCards = document.querySelectorAll(".card");
  }
  löschen();
 
-
-
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -82,9 +82,14 @@ var matchedCards = [];
 var flippedCards = [];
 var movesUsed = "0";
 
+/*Add EventListener for a Click and starts the showCard Function to open Cards*/
 var deckEvent = document.querySelector('.deck');
 deckEvent.addEventListener("click", showCard, false);
 
+/*If a card is clicked and not already open, the Card will be flipped. The <i> Element is then pushed into the Arrays openCardsList to check wheter or not it is the same.
+The <li> is pushed into the Array flippedCards to flip both cards back or let both cards stay open, if matched or missmatched.
+Invokes two next Funtions openCards to check for matches and Starcount.
+*/
 function showCard(evt) {
   if (evt.target.nodeName === "LI" && evt.target.className !== "card match")
   {evt.target.className = "card open show";
@@ -95,6 +100,13 @@ function showCard(evt) {
   openCards(evt);
   Starcount();
 }
+
+/*Checks if there are 2 cards flipped and if they match. For a match Function cardmatch is triggered.
+If there is a missmatch flipback will be triggered with a slight delay.
+If a card matches the value match is send to an array to keep count on the overall matches.
+The values in the Array openCardsList are deleted after the comparison.
+The moves Function counts the moves used to complete the Game
+*/
 
 function openCards(evt) {
   if (openCardsList.length === 2 && openCardsList[0] === openCardsList[1]) {
@@ -110,11 +122,15 @@ moves();
     };
 }
 
+/*flips both missmatched cards back by assigning the class "card" and delets the value in the Array*/
+
 function flipback() {
     flippedCards[0].className = "card";
     flippedCards[1].className = "card";
     flippedCards.splice(0,2);
   }
+
+/*Changes the class of the matched cards and deletes the values in the Array. Triggers the finish game Function with a delay to see if the game is finished.*/
 
   function cardmatch() {
       flippedCards[0].className = "card match";
@@ -123,17 +139,8 @@ function flipback() {
       setTimeout(finishGame, 300);
     }
 
-    var repeat = document.querySelector('.fa-repeat');
-    repeat.addEventListener("click", löschen);
-
-
-    function moves() {
-      var movecount = document.querySelector('.moves');
-        movecount.innerText++;
-        movesUsed = movecount.innerText;
-    }
-
-/*Funtion to finish the Game. Alert to show moves, time and Message. Button to restart the game*/
+/*Funtion to finish the Game. Checks if there are 8 matched Cards in the Array. Deletes all the Values in the Array at the End. Clears the Time function for a new Start.
+Alert to show moves, time and Message. Button to restart the game*/
 
 function finishGame() {
   if (matchedCards.length === 8) {
@@ -154,6 +161,18 @@ matchedCards.splice(0,8);
 };
 };
 
+/*If the repeat Symbol is clicked the löschen funtion will be triggered*/
+
+var repeat = document.querySelector('.fa-repeat');
+repeat.addEventListener("click", löschen);
+
+/*Count the moves. Increases the moves when there is a match or missmatch.*/
+
+function moves() {
+  var movecount = document.querySelector('.moves');
+    movecount.innerText++;
+    movesUsed = movecount.innerText;
+}
 
 /*Star Rating Definition. Changes the Class of the ".Stars" after a certain length of the Array "movesUsed" is reached*/
 
@@ -174,7 +193,7 @@ function Starcount() {
       }
     }
 
-    /*Timer Funtion Definition. Counts Seconds after the first Click*/
+    /*Timer Funtion Definition. Counts Seconds after the first Click. Deletes the EventListener at the End so the time is not sped up with multiple Time funtions stacking. */
 
     var myVar;
     var timeUsed = [];
