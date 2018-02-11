@@ -14,15 +14,15 @@ for loop to loop through all the cards and randomly assign them.
  */
 
  function löschen() {
- let allCards = document.querySelectorAll(".card");
  let move = document.querySelector('.moves');
+ move.innerText = "0";
  document.getElementById("time").innerHTML = "0s";
  clearTimeout(myVar);
  let stars = document.querySelector('.stars');
  stars.children[0].innerHTML = '<i class="fa fa-star"></i>';
  stars.children[1].innerHTML = '<i class="fa fa-star"></i>';
  stars.children[2].innerHTML = '<i class="fa fa-star"></i>';
- move.innerText = "0";
+let allCards = document.querySelectorAll(".card");
        for (y = 0; y < allCards.length; y++) {
          let everyCard = allCards[y];
           let changeCards = cardlist[y];
@@ -106,7 +106,7 @@ moves();
 setTimeout(flipback,500);
 openCardsList.splice(0,2);
 moves();
-  };
+    };
 }
 
 function flipback() {
@@ -174,14 +174,12 @@ function Starcount() {
 
     /*Timer Funtion Definition. Counts Seconds after the first Click*/
 
-    var seconds = "0";
     var myVar;
+    var timeUsed = [];
     function time() {
-    myVar = setInterval(myTimer ,1000);
-    }
-    function myTimer() {
-        seconds++;
-        document.getElementById("time").innerHTML = seconds + "s";
+    let seconds = "0";
+    myVar = setInterval(function() {seconds++; document.getElementById("time").innerHTML = seconds + "s";timeUsed.splice(0,1,seconds);} ,1000);
+    this.removeEventListener("click", time);
     }
 /*
  * set up the event listener for a card. If a card is clicked:
