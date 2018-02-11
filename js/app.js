@@ -92,6 +92,7 @@ function showCard(evt) {
   evt.target.style.cssText = "transform: rotateY(180deg); transition: 0.4s;";
 }
   openCards(evt);
+  Starcount();
 }
 
 function openCards(evt) {
@@ -118,6 +119,7 @@ function flipback() {
       flippedCards[0].className = "card match";
       flippedCards[1].className = "card match";
       flippedCards.splice(0,2);
+      setTimeout(finishGame, 300);
     }
 
     var repeat = document.querySelector('.fa-repeat');
