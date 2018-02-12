@@ -28,6 +28,6 @@ If the Symbols do not match both cards will be flipped Back. If they match both 
 
 You win the Game by matching all the Cards. When you win the Game a screen will show you how many attempts you needed and how long it took you to finish. You can start another Game by clicking "Restart"
 There will also be a Star Count to show you how well you played that round.
-For less than 12 moves you get a 3 Star Rating, for 13 to 16 moves a 2 Star Score, 17 to 20 a 1 Star Score and for more than 21 moves a 0 Star Score.
+For less than 12 moves you get a 3 Star Rating, for 13 to 16 moves a 2 Star Score and for more than 17 moves 1 Star.
 
 You can also restart the game by clicking the symbol in the upper right corner.
