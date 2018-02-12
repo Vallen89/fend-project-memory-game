@@ -26,7 +26,6 @@ function löschen() {
     let stars = document.querySelector('.stars');
     stars.children[0].innerHTML = '<i class="fa fa-star"></i>';
     stars.children[1].innerHTML = '<i class="fa fa-star"></i>';
-    stars.children[2].innerHTML = '<i class="fa fa-star"></i>';
     let allCards = document.querySelectorAll(".card");
     for (y = 0; y < allCards.length; y++) {
         let everyCard = allCards[y];
@@ -178,9 +177,6 @@ function Starcount() {
     } else if (movesUsed == 17) {
         stars.children[1].innerHTML = '<i class="fa fa-star-o"></i>';
         Sterne = "1";
-    } else if (movesUsed == 21) {
-        stars.children[2].innerHTML = '<i class="fa fa-star-o"></i>';
-        Sterne = "0";
     }
 }
 
