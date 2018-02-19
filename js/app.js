@@ -83,7 +83,7 @@ The <li> is pushed into the Array flippedCards to flip both cards back or let bo
 Invokes two next Funtions openCards to check for matches and Starcount.
 */
 function showCard(evt) {
-    if (evt.target.nodeName === "LI" && evt.target.className !== "card match") {
+    if (evt.target.nodeName === "LI" && evt.target.className !== "card match" && evt.target.className !== "card open show") {
         evt.target.className = "card open show";
         openCardsList.push(evt.target.firstElementChild.className);
         flippedCards.push(evt.target);
